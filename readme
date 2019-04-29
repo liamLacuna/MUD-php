@@ -1,0 +1,29 @@
+./pages:
+index.php   main page
+reg.php     register page
+login.php   login page
+server.php  server page
+
+functions:
+say dialog
+tell someone dialog
+yell dialog
+
+messages table:msg_tb
+id      int unsigned auto_increment primary key
+type    int unsigned   (0:yell 1:say   2:tell)
+from    int unsigned not null
+to      int unsigned not null default 0 (0:global)
+tm timestamp default current_timestamp
+
+user table:usr_tb
+id      int unsigned auto_increment primary key
+name    varchar(16)
+pass    varchar(16)
+tm  timestamp default current_timestamp
+
+recv table:recv_tb
+id      int unsigned auto_increment primary key
+uid     int unsigned
+msg_id  int unsigned not null
+tm      timstamp default current_timestamp
